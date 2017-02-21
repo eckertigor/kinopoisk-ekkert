@@ -1,0 +1,366 @@
+.my-pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 0px 0;
+  border-radius: 4px;
+}
+
+body{
+background-size: cover;
+background-attachment: fixed;
+background-image: url(../back.jpg);
+background-repeat: no-repeat;
+background-position: center top;
+}
+
+.ans-text {
+	word-wrap: break-word;
+}
+
+.navbar-mes {
+	margin-bottom: 0px;
+  height: 80px;
+	min-width: 1100px;
+  /*background-color:#229922;
+  color:#ffffff;*/
+
+}
+
+.navbar-container {
+	width: 100%;
+}
+
+.navbar-header-custom {
+	width: 8vw;
+}
+
+.navbar-left-custom {
+	margin-top: 0px;
+}
+
+.navbar-search {
+	width: 67vw !important;
+}
+
+.btn-align {
+	text-decoration: none;
+	color:white;
+	margin-left: 10px;
+}
+
+.navbar-right-custom {
+	padding-right: 0;
+	margin-right: 0px;
+	min-width: 150px;
+	max-height: 50px;
+}
+
+.navbar-img {
+	margin-top: 2px;
+	margin-left:0px;
+	margin-right: 5px;
+}
+
+.navbar-user {
+	margin-left: 20px;
+	margin-right: 15px;
+}
+
+.navbar-logout {
+	margin-left: 20px;
+	margin-right: 15px;
+}
+
+.navbar-login {
+	padding-left: 5px !important;
+}
+
+.navbar-signup {
+	padding-left: 0px !important;
+}
+
+.tags {
+	margin-top:20px;
+}
+
+.tags-title {
+	color:#f9f9f9;
+}
+
+.tags-form {
+	margin-left:15px;
+}
+
+.question {
+	border: 2px solid black;
+	margin-bottom:10px;
+	background:#f9f9f9;
+	border-radius: 6px;
+}
+
+.question-author-avatar {
+	margin-top: 15px;
+	margin-bottom: 7px;
+	margin-left:24px;
+}
+
+.button-like {
+	margin-left: 6px;
+	width: 23px !important;
+}
+
+.button-dislike {
+	width: 23px !important;
+	margin-left: 0px;
+}
+
+.like-counter {
+	width: 50px !important;
+	margin-top: 4px;
+	margin-left: 6px;
+	display:block;
+	margin-bottom: 10px;
+}
+
+.button-like-q {
+	padding-left: 10px;
+	margin-left: 5px;
+	width: 46px !important;
+	margin-bottom: 5px;
+}
+
+.button-dislike-q {
+	width: 46px !important;
+	margin-left: 3px;
+	margin-bottom: 5px;
+}
+
+.like-counter-q {
+	width: 97px !important;
+	height: 20px !important;
+	margin-top: 2px;
+	margin-left: 6px;
+	display:block;
+	margin-bottom: 10px;
+}
+
+.question-link {
+	margin-bottom:1px;
+}
+
+.answers {
+	margin-bottom:10px;
+	margin-top:15px;
+}
+
+.tags-list {
+	display:inline;
+	margin-left:140px;
+}
+
+.question-container {
+	margin-top:41px;
+	margin-left: -28px;
+}
+
+.question-params {
+	margin-bottom:15px;
+	background:#f9f9f9;
+	border-radius: 5px;
+}
+
+.question-params2 {
+	padding-left: 10px;
+	padding-right: 0px
+}
+
+.question-avatar {
+	margin-top: 15px;
+	margin-bottom: 7px;
+	margin-left:20px;
+}
+
+.tags-list-q {
+	display:inline;
+}
+
+.question-answers {
+	border: 2px solid black;
+	margin-bottom:15px;
+	margin-left: 15px;
+	background:#f9f9f9;
+	border-radius: 6px;
+}
+
+.answer-user-avatar {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left:23px;
+}
+
+.answer-text {
+	margin-top:10px;
+}
+
+.answer-checkbox {
+	margin-bottom:10px;
+	margin-top:15px;
+}
+
+.tag-container {
+	border: 2px solid black;
+	margin-bottom:10px;
+	background:#f9f9f9;
+	border-radius: 6px;
+}
+
+.reg-container {
+	margin-top: 100px !important;
+  padding-top: 1px;
+  padding-bottom: 15px;
+}
+
+.login-container {
+	margin-top: 35px;
+	width: 160%;
+}
+
+.answ-input {
+	margin-left: 40px;
+	width: 701px;
+}
+
+.answ-btn {
+	margin-bottom: 25px;
+	margin-left: 40px;
+	margin-top: 0px;
+}
+
+.login-want {
+	display: inline-block;
+	padding-bottom: 30px;
+	margin-left: 40px;
+	margin-top: 0px;
+}
+
+.login-button {
+	margin-left: 7px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+.navbar-custom {
+	background-color:#229922;
+    color:#229922;
+  	border-radius:0;
+    width: 100%;
+}
+
+.collapse.navbar-collapse.item-custom-nav {
+  height: 100% !important;
+}
+
+.navbar-right-custom.userblock.text {
+  height: 30px;
+
+}
+.nav.navbar-nav.navbar-custom {
+  height: 100% !important;
+}
+
+.item {
+  height: 100%;
+}
+
+.roboto-font {
+  text-align: center;
+  font-family: 'Roboto Black', sans-serif;
+  font-size: 52px;
+  padding-top: 25px !important;
+  padding-bottom: 0px !important;
+}
+
+.roboto-font-user {
+  text-align: center;
+  font-family: 'Roboto Black', sans-serif;
+  font-size: 22px;
+  color: #fff !important;
+}
+
+a:hover, a:active {
+  color: #333333 !important;
+  text-decoration: none !important;
+}
+
+.userblock {
+  align:center;
+  margin-left: 70px;
+  margin-top: 7px;
+}
+
+.film-logo {
+  max-height: 200px;
+  max-width: 200px;
+
+}
+
+.item-custom {
+  width: 33%;
+  height: 100%;
+}
+.navbar-custom .navbar-nav > li > a {
+  	color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    /*width : 30%;*/
+
+	background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #33aa33;
+    /*width : 30%;*/
+}
+
+.navbar-custom .navbar-brand {
+  	color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+  	background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+  	background-color:#33aa33;
+}
+.container-custom {
+  padding-right: 0px;
+  padding-left: 0px;
+  height: 100%;
+}
+
+.az {
+  display: inline-block;
+}
+
+.film-container {
+  background: #eee;
+  height: 410px;
+}
+
+
+.film-page-btn {
+    position:absolute;
+    bottom: 20px;
+  }
+.short-description {
+  height: 90px;
+}
+
+.film-title {
+  margin-top: 0px;
+}
+
+.not-reg {
+  margin-top: 15px;
+}

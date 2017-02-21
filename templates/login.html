@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="col-md-8 col-sm-8 col-md-offset-2">
+    <div class="jumbotron reg-container">
+	    <h2>Вход</h2>
+	    <form id="log-form" action="/login/" method="post" enctype="multipart/form-data">
+	     	{% csrf_token %}
+	     	{% for f in form.visible_fields %}
+	        <div class="form-group {% if f.errors %}has-error{% endif %}" >
+	        	<label for="{{ f.id_for_label }}">{{ f.label }} </label>
+	        	  {{ f }}
+	        </div>
+        {% endfor %}
+	        <button id="btn-log" type="submit" class="btn btn-primary">Вход</button><br>
+        {% if error %}
+          <br>
+          <div class="alert alert-danger" role ="alert" id="field-error">{{ error }}</div>
+        {% endif %}
+	    </form>
+    </div>
+  </div>
+</div>
+
+{%endblock %}

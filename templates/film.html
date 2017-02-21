@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="sort-menu">
+    {% if user.is_superuser %}
+      <a href="/control/edit/{{ film.id }}" class="btn btn-warning admin-edit" role="button">Редактировать</a>
+      {% if film.is_deleted == 1%}
+      <a href="/control/restore/" class="btn btn-success admin-edit" role="button" id="film-restore">Восстановить</a>
+      {% else %}
+      <a href="/control/delete/" class="btn btn-danger admin-edit" role="button" id="film-delete">Удалить</a>
+      {% endif %}
+      <a href="/control/" class="btn btn-primary admin-panel" role="button">Панель администратора</a>
+    {% endif %}
+    <input type="hidden" id="film_id" value="{{ film.id }}">
+    <input type="hidden" id="hide-title" value="{{ film.title }}">
+    <input type="hidden" id="my_rating" value="{{ my_rating }}">
+    <input type="hidden" id="user_name" value="{{ user.username }}">
+  </div>
+  <div class="col-md-12 col-sm-12">
+    <div class="jumbotron reg-container film-full">
+           <img class="film-logo-full" src="/uploads/{{ film.poster.name|slice:"2:" }}">
+           <h2 id="title">
+           {% if film.is_deleted == 1 %}
+            <b>(Удален)</b>
+           {% endif %}
+    		   <b>{{ film.title }}</b></h2>&nbsp;&nbsp;
+           <p id="film-text"><b>Описание:</b> {{ film.full_description }} <br>
+              <b>Режиссер:</b> {{ film.director }} <br>
+              <b>Год:</b> {{ film.year }} <br>
+              <b>Рейтинг</b>
+           <span id="avgrat"> {{ film.rating }} </span> <img class="star-rating-page"
+                    src="/uploads/star.png"></p>
+                    <p></p>
+           {% if user.is_authenticated %}
+              <p><input name="rating" value="{{ film.rating }}" id="rating_star" type="hidden" postID="1" />
+            <div class="overall-rating">
+            </div>
+           {% endif %}
+          <div>
+            <h2 class="reviews-title s">Статистика оценок</h2>
+            {% for s in stars %}
+                <input name="rating" value="{{ s }}" id="s_{{ forloop.counter }}" type="hidden" postID="1"/>
+            {% endfor %}
+            <input name="rating" value="Распределение оценок фильма" id="stat_title" type="hidden" postID="1"/>
+            <div id="flot-placeholder" style="width:800px;height:300px"></div>
+          </div>
+          <div id="reviews">
+            <h2 class="reviews-title">Отзывы о фильме</h2>
+          {% for r in reviews %}
+            {% if r.is_banned == 0 or user.is_superuser %}
+              {% if r.is_banned == 1 %}
+                <div class="row question-answers hide-block" id="{{ r.id }}">
+              {% else %}
+                <div class="row question-answers" id="{{ r.id }}">
+              {% endif %}
+                    <div class="col-md-2 col-sm-2">
+                        <div class="row">
+                          <img class="navbar-left img-rounded question-author-avatar avatar-small" src="/uploads/{{ r.user_avatar}}">
+                        </div>
+                        <h4>{{ r.user }}</h4>
+                        {% if user.is_superuser %}
+                          {% if r.is_banned == 0 %}
+                            <a href="/control/hide/{{ r.id }}/1/"
+                              class="btn btn-danger hide-review"
+                               id="hide_review_{{ r.id }}" role="button">Скрыть</a>
+                          {% else %}
+                            <a href="/control/hide/{{ r.id }}/0/"
+                              class="btn btn-success hide-review"
+                               id="show_review_{{ r.id }}" role="button">Показать</a>
+                          {% endif %}
+                        {% endif %}
+                          <br>
+                    </div>
+                    <div class="col-md-10 col-sm-10 review-text">
+                        <div class="review-block">
+                          <P>{{ r.text }}</P>
+                        </div>
+                    </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+            </div>
+            {% if user.is_authenticated %}
+              <form id="review-form" action="/review/" method="POST">
+                  {% csrf_token %}
+                  {% for f in form.visible_fields %}
+                      <div class="form-group answ-input" >
+                          <label id="text_field" for="{{ f.id_for_label }}">
+                             <h0>Введите ваш отзыв о фильме</h0>
+                           </label>
+                            {{ f }}
+                      </div>
+                  {% endfor %}
+                  <input type="hidden" id="film_id_form" value="{{ film.id }}">
+                  <button id="review-send" class="btn btn-success answ-btn" type="submit">Оставить отзыв</button>
+              </form>
+            {% else %}
+                  <h3 class="tags-title login-want">Want to review? Just </h3>
+                  <a href="/login/" class="btn btn-success answ-btn login-button btn-more">Log In</a>
+            {% endif %}
+    </div>
+  </div>
+</div>
+
+{%endblock %}

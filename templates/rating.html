@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="sort-menu">
+		<h2 class="film-sort">Рейтинг лучших фильмов</h2>&nbsp;&nbsp;
+      {% if user.is_superuser %}
+        <a href="/control/" class="btn btn-primary admin-panel" role="button">Панель администратора</a>
+      {% endif %}
+  </div>
+	<div class="active">
+		{% for film in films %}
+			{% if film.is_deleted == 0 %}
+			<ul class="list-group list-all-films-r" id="{{ film.id }}">
+        <h2 class="film-sort">{{ forloop.counter }}</h2>
+			  <li class="list-group-item rat">
+					<a href="/film/{{ film.id }}"><b>{{ film.title }}<b></a>
+            <h3 class="btn btn-warning admin-edit control-item"
+  						        role="button">{{ film.rating}}</h3>
+			  </li>
+
+			</ul>
+			{% endif %}
+		{% endfor %}
+	</div>
+
+{%endblock %}

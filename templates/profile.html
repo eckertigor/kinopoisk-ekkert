@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+	<div class="sort-menu">
+    {% if user.is_superuser %}
+      <a href="/control" class="btn btn-primary admin-panel" role="button">Панель администратора</a>
+    {% endif %}
+  </div>
+  <div class="col-md-12 col-sm-12">
+    <div class="jumbotron reg-container profile">
+       <h2>Профиль {{ user.username}}</h2>
+       <img class="film-logo-full profile-logo-full" src="/uploads/{{ avatar }}">
+       <p class="stat-title"><b>Статистика моих оценок:</b> {{ film.full_description }} </p>
+       {% for s in stars %}
+           <input name="rating" value="{{ s }}" id="s_{{ forloop.counter }}" type="hidden" postID="1"/>
+       {% endfor %}
+       <input name="rating" value="Распределение моих оценок" id="stat_title" type="hidden" postID="1"/>
+       <div id="flot-placeholder" class="stat"></div>
+     </div>
+  </div>
+ </div>
+
+  {%endblock %}

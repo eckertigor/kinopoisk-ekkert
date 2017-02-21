@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+	 <div class="sort-menu">
+		 <h3 class="film-sort">Отсортировать по</h3>&nbsp;&nbsp;
+		 <a href="/" class="btn btn-success btn-sort" role="button">Рейтингу</a>
+		 <a href="/popular" class="btn btn-default" role="button">Популярности</a>
+		 <a href="/date" class="btn btn-default" role="button">Дате добавления</a>
+		 <a href="/title" class="btn btn-default" role="button">Названию</a>
+		 {% if user.is_superuser %}
+		   <a href="/control" class="btn btn-primary admin-panel" role="button">Панель администратора</a>
+		 {% endif %}
+	 </div>
+
+	 {% for film in films %}
+		 <div class="col-md-4 col-sm-4">
+			 <div class="thumbnail film-container">
+				 <a href="/film/{{ film.id }}">
+					 <img class="film-logo" src="/uploads/{{ film.poster.name|slice:"2:" }}">
+				 </a>
+		     <div class="caption">
+			       <h3 class="film-title"><a class="title-link" href="/film/{{ film.id }}">
+						 		{{ film.title }}</a></h3>
+						 <div class="short-description">
+				       <p>{{ film.short_description }}</p>
+						</div>
+			       <p class="film-page-btn">
+							 <a href="/film/{{ film.id }}" class="btn btn-primary btn-more" role="button">Подробнее</a>
+						 </p>
+						 <p><h3 class="value-rating">{{ film.rating }}</h3>
+							 	 <img class="star-rating" src="/uploads/star.png">
+ 						 </p>
+		     </div>
+	     </div>
+		 </div>
+	 {% endfor %}
+{%endblock %}

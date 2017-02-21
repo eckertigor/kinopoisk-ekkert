@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="col-md-12 col-sm-12">
+    <div class="jumbotron reg-container">
+	    <h2>Редактирование фильма</h2>
+	    <form id="film-edit-form" action="/control/edit/{{ film.id }}" method="post" enctype="multipart/form-data">
+	     	{% csrf_token %}
+	     	{% for f in form.visible_fields %}
+	        <div class="form-group {% if f.errors %}has-error{% endif %}" >
+	        	<label for="{{ f.id_for_label }}">{{ f.label }} </label>
+	        	  {{ f }}
+	        </div>
+        {% endfor %}
+        <input type="hidden" id="film_id" value="{{ film.id }}">
+	        <button id="film-edit" type="submit" class="btn btn-success">Сохранить</button>
+        {% if film.is_deleted == 0 %}
+	        <button id="film-delete" type="submit" class="btn btn-danger button-delete">Удалить фильм</button><br>
+        {% else %}
+          <button id="film-restore" class="btn btn-success admin-edit" type="sumbit">Восстановить фильм</button><br>        {% endif %}
+
+	    </form>
+    </div>
+  </div>
+</div>
+
+{%endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kinopoisk-ekkert</title>
+    <script src="/js/my.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/maine3w323.css" rel="stylesheet">
+    <link rel="icon" href="../../favicon.ico">
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-mes">
+      <div class="container navbar-container">
+        <div class="navbar-header navbar-header-custom">
+          <a class="navbar-brand" href="{% url 'index' %}">AskEkkert</a>
+        </div>
+        <form class="navbar-form navbar-left navbar-left-custom" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control navbar-search" placeholder="Search" >
+          </div>
+            <a href="/ask/" class="btn btn-success navbar-btn btn-align">Ask</a>
+        </form>
+        <ul class="nav navbar-nav navbar-left navbar-right-custom">
+            <li><img class="navbar-right img-rounded navbar-img" src="http://lorempixel.com/45/45/"></li>
+            <a href="/" class="navbar-link navbar-user">testUSER</a></p>
+            <a href="/logout/" class="navbar-link navbar-logout">
+            <span class="glyphicon glyphicon-log-out"></span> Logout </a>
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8">
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+{% block js %}{% endblock %}

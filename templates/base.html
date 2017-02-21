@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Kinopoisk-ekkert</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/js/my.js"></script>
+    <script src="../../js/bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/rating.js"></script>
+    <script type="text/javascript" src="/js/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.flot.symbol.js"></script>
+    <script type="text/javascript" src="/js/jquery.flot.axislabels.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link rel="icon" href="../../favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="/css/rating.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-mes navbar-custom">
+      <div class="container navbar-container container-fluid container-custom">
+        <div class="collapse navbar-collapse item-custom-nav">
+          <ul class="nav navbar-nav navbar-custom">
+            <li class="item-custom"><a class="item roboto-font" href="{% url 'index' %}">Фильмы</a></li>
+            <li class="item-custom"><a class="item roboto-font" href="{% url 'rating' %}">Рейтинг</a></li>
+            <ul class="nav navbar-nav navbar-left navbar-right-custom userblock text">
+              {% if user.is_authenticated %}
+                <li><img class="navbar-right img-rounded navbar-img avatar" src="/uploads/{{ avatar }}"></li>
+                <a href="/profile" class="navbar-link navbar-user roboto-font-user">Профиль {{ user.username }}</a><br>
+                <a href="/logout/" class="navbar-link navbar-logout roboto-font-user">
+                <span class="glyphicon glyphicon-log-out"></span> Logout </a>
+              {% else %}
+                <div class="not-reg">
+                  <a href="{% url 'login' %}" class="navbar-link navbar-user roboto-font-user" >
+                  <span class="glyphicon glyphicon-log-in"></span> LogIn</a>
+                  <a href="{% url 'signup' %}" class="navbar-link navbar-logout roboto-font-user">
+                  <span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                </div>
+              {% endif %}
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          {%block content %} {% endblock %}
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+{% block js %} {% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="sort-menu">
+		<h2 class="film-sort">Панель управления фильмами</h3>&nbsp;&nbsp;
+			<a href="./add" class="btn btn-success admin-panel" role="button">Добавить фильм&nbsp;
+				<span class="glyphicon glyphicon-plus"></span> </a>
+  </div>
+	<h2> Активные </h2>
+	<div class="active">
+		{% for film in films %}
+			{% if film.is_deleted == 0 %}
+			<ul class="list-group list-all-films" id="{{ film.id }}">
+			  <li class="list-group-item">
+					<a href="/film/{{ film.id }}"><b>{{ film.title }}<b></a>
+					<a href="/control/edit/{{ film.id }}" class="btn btn-warning admin-edit control-item"
+						        role="button">Редактировать</a>
+					<a href="/control/delete/{{ film.id }}" class="btn btn-danger admin-edit control-item"
+										role="button" id="film-delete-control">Удалить</a>
+			  </li>
+			</ul>
+			{% endif %}
+		{% endfor %}
+	</div>
+	<h2> Удаленные </h2>
+	<div class="removed">
+		{% for film in films %}
+			{% if film.is_deleted == 1 %}
+			<ul class="list-group list-all-films" id="{{ film.id }}">
+			  <li class="list-group-item">
+					<a href="/film/{{ film.id }}"><b>{{ film.title }}<b></a>
+					<a href="/control/edit/{{ film.id }}" class="btn btn-warning admin-edit control-item"
+						        role="button">Редактировать</a>
+					<a href="/control/restore/{{ film.id }}" class="btn btn-success admin-edit control-item"
+										role="button" id="film-restore-control">Восстановить</a>
+			  </li>
+			</ul>
+			{% endif %}
+		{% endfor %}
+	</div>
+{%endblock %}
